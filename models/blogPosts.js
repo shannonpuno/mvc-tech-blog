@@ -23,11 +23,11 @@ blogPosts.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
-        username: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'User',
-                key: 'username',
+                key: 'id',
             },
         },
     },
