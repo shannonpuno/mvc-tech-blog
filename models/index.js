@@ -1,13 +1,13 @@
 const User = require('./User');
 const blogPosts = require('./blogPosts');
-const Comment = require('./comments');
+const comments = require('./comments');
 
 // associations
 User.hasMany(blogPosts, {
     foreignKey: 'user_id',
 });
 
-User.hasMany(Comment, {
+User.hasMany(comments, {
     foreignKey: 'blogpost_id'
 });
 
@@ -15,16 +15,16 @@ blogPosts.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-blogPosts.hasMany(Comment, {
+blogPosts.hasMany(comments, {
     foreignKey: 'blogpost_id',
 });
 
-Comment.belongsTo(User, {
+comments.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Comment.belongsTo(blogPosts, {
+comments.belongsTo(blogPosts, {
     foreignKey: 'blogpost_id'
 });
 
-module.exports = {User, blogPosts, Comment};
+module.exports = {User, blogPosts, comments};
