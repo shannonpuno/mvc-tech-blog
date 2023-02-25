@@ -1,0 +1,31 @@
+<section class = "container">
+    <h3> {{ Username }}'s Blog Posts </h3>
+        <ol>
+            {{ #each blogPost as || blogPosts|}}
+            <li>
+                {{> blogPost-info blogPost}}
+                <a href="/dashboard/edit/{{ blogPosts.id}}" class="edit-link">Edit Post</a>
+            </li>
+            {{/each}}
+        </ol>
+</section>
+{{/if}}
+
+<section class = "container">
+    <h3> Create a New Blog Post </h3>
+    <form class="new-blogPost-form">
+        <div>
+            <label for="blogPost-title"> Title</label>
+            <input class="form-control form-control-lg" id="blogPost-title" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+        </div>
+        <div>
+            <label for="blogPost-content">Description</label>
+            <textarea class="form-control" id="blogPost-content" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+</section>
+{{/if blogPost.length}}
+
+
+<script src="./js/dashboard.js"></script>
